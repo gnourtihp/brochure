@@ -6132,3 +6132,58 @@ p.svelte-zm8vnt {
         padding: .75rem 1.5rem
     }
 }
+
+/* Trạng thái mặc định: Tất cả chụm lại 1 chỗ và ẩn đi */
+.share-menu__item {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    /* Animation khởi tạo */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Tất cả quy về tâm (vị trí nút share chính) */
+    transform: translate(0, 0) scale(0);
+}
+
+/* Khi share-menu có class visible: Hiện ra và bung vị trí */
+.share-menu.visible .share-menu__item {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    /* Hiện hình về kích thước chuẩn */
+}
+
+/* Định nghĩa tọa độ bung ra cho từng icon cụ thể */
+.share-menu.visible .share-menu__item--mail {
+    transform: translate(15px, 5px) scale(1);
+    background-color: rgb(234, 67, 53);
+}
+
+.share-menu.visible .share-menu__item--whatsapp {
+    transform: translate(-28px, 18px) scale(1);
+    background-color: var(--whatsapp-color);
+}
+
+.share-menu.visible .share-menu__item--facebook {
+    transform: translate(-49px, 59px) scale(1);
+    background-color: rgb(24, 119, 242);
+}
+
+.share-menu.visible .share-menu__item--linkedin {
+    transform: translate(-28px, 99px) scale(1);
+    background-color: rgb(0, 119, 181);
+}
+
+.share-menu.visible .share-menu__item--twitter {
+    transform: translate(15px, 113px) scale(1);
+    background-color: rgb(0, 0, 0);
+}
